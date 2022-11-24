@@ -1,25 +1,27 @@
-//Modules
-//CommonJs ,every file is module(by default)
-//Modules - Encapsulated code(only share minimum )
+//npm - global command,comes with node
+//npm --version
 
-//To use exported object from 4_First_Module we have to use require
-const names = require('./4_First_Module');
-console.log(names);
+//local dependemcy - use it only in this particular project
+//npm i<packageName>
 
-const data = require('./6_Alterntive_Syntax')
-console.log(data);
+//gloabl dependecy - use it in any project
+//npm install -g<packageName>  or npm i -g<packageName>
+//sudo install -g <packageName> (mac)
 
-require('./7_Mind_Grenade')
+//package.json - manifest file(stores important info about package /project )
+
+//Three ways to create package .json:
+
+//manual approach (create package.json in the root ,create properties etc)
+//npm init (step by step,press enter to skip)
+//npm init -y (everything setup default)
+
+//if you want to publish the package,the name has to be unique
 
 
-const sayHii=require('./5_Utills')
-sayHii('Tosar')
-sayHii(names.nahid)
-sayHii(names.dihan)
+const a = require('lodash');
+const items = [1, [2, [3, [4]]]];
+const newItems = a.flattenDeep(items);
+console.log(newItems);
+//console.log((items));
 
-// const sayHello = (name) => {
-//     console.log(`say hello ${name}`);
-// }
-// sayHello(`nayem`);
-// sayHello('nahid');
-// sayHello(dihan);
