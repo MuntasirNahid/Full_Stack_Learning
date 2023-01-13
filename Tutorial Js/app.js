@@ -1,27 +1,21 @@
-//npm - global command,comes with node
-//npm --version
+const express = require('express')
+const app = express()
 
-//local dependemcy - use it only in this particular project
-//npm i<packageName>
+const people = require('./routes/people')
+const auth = require('./routes/auth')
 
-//gloabl dependecy - use it in any project
-//npm install -g<packageName>  or npm i -g<packageName>
-//sudo install -g <packageName> (mac)
+app.use(express.static('./methods-public'))
 
-//package.json - manifest file(stores important info about package /project )
+//parse from data
+app.use(express.urlencoded({ extended: false }))
 
-//Three ways to create package .json:
+//parse json
+app.use(express.json())
 
-//manual approach (create package.json in the root ,create properties etc)
-//npm init (step by step,press enter to skip)
-//npm init -y (everything setup default)
+app.use('/api/people',people)//because base a/api/people stays the same for people
 
-//if you want to publish the package,the name has to be unique
+app.use('/login',auth)
 
-
-const a = require('lodash');
-const items = [1, [2, [3, [4]]]];
-const newItems = a.flattenDeep(items);
-console.log(newItems);
-//console.log((items));
-
+app.listen(5000, () => {
+   console.log('Server is listening on port 5000...');
+})
