@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "validator": "^13.9.0"
+  }
+}
